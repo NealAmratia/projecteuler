@@ -1,12 +1,4 @@
 data = """
-3
-7 4
-2 4 6
-8 5 9 3
-"""
-
-'''
-data = """
 75
 95 64
 17 47 82
@@ -23,14 +15,20 @@ data = """
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 """
-'''
+
 # Convert to a 2D array
 pyramid = [list(map(int, line.split())) for line in data.strip().split("\n")]
 
-#print((pyramid[0])[0])
+sum = (pyramid[0])[0] #Sum starts with the initial element in row 0
+a=0 #Index of adjacent element in the row.
 
-sum = 0
+for i in range(1,(len(pyramid))):
+    if (pyramid[i])[a] > (pyramid[i])[a+1]:
+        a=a
+    else:
+        a=a+1
+    print((pyramid[i])[a]) #For debugging purposes
 
+    sum = sum + (pyramid[i])[a]
 
-for i in range(0,(len(pyramid))):
-    print("{}, {}".format(i, max(pyramid[i])))
+print("The final answer is: " + str(sum))
