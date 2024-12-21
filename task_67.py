@@ -1,5 +1,5 @@
 # Read the triangle data from a file
-with open("problem67_triangle.txt", "r") as file:
+with open("task_67.txt", "r") as file:
     data = file.read()
 
 # Convert to a 2D array
